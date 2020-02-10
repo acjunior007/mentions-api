@@ -14,3 +14,15 @@ exports.createMention = async data => {
     const mention = new Mentions(data);
     await mention.save();
 };
+
+// update
+exports.updateMention = async(id, data) =>{
+    await Mentions.findByIdAndUpdate(id, {
+        $set: data
+    });
+};
+
+// delete
+exports.deleteMention = async (id) => {
+    await Mentions.findByIdAndDelete(id);
+}
